@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<link rel="stylesheet" href="/stylesheets/style.css">
+		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+		
+		<div class="title">
+			<h1>Buzzword Bingo</h1>
+			<p>Design Edition</p>
+		</div>
+    <div class="bingo-card">
+			<% for(var i=0; i<buzzwords.length; i++) {%>
+				<% if(i == 12) {%>
+					<div class="free-word">
+					  <div class="word-card">
+					    <div class="front">
+					    	<a href="">yolo</a>
+					    </div>
+					  </div>
+					</div>
+				<% } %>
+					<div class="word-container">
+					  <div class="word-card">
+					    <div class="front">
+					    	<a href=""><%= buzzwords[i] %></a>
+					    </div>
+					    <div class="back">
+					    	<a href="">answered <%= buzzwords[i] %></a>
+					    </div>
+					  </div>
+					</div>
+			<% } %>
+		</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="/javascripts/core.js"></script>
+  </body>
+</html>

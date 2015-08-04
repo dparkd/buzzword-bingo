@@ -1,0 +1,41 @@
+// Mixins for this style sheet
+
+.boxshadow(@blur){
+	-webkit-box-shadow: 0px 1px @blur 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 1px @blur 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px @blur 0px rgba(0, 0, 0, 0.15);
+}
+
+.basic-animation(@time){
+   -webkit-transition: all @time cubic-bezier(0.25, 0.46, 0.45, 0.94);
+   -moz-transition: all @time cubic-bezier(0.25, 0.46, 0.45, 0.94);
+   -ms-transition: all @time cubic-bezier(0.25, 0.46, 0.45, 0.94);
+   -o-transition: all @time cubic-bezier(0.25, 0.46, 0.45, 0.94);
+   transition: all @time cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.translateY(@distance) {
+	-ms-transform: translateY(@distance);
+  -webkit-transform: translateY(@distance);
+  transform: translateY(@distance);
+}
+
+.card-flip-left() {
+  -webkit-transform: rotateX(0deg) rotateY(0deg);
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  
+  -moz-transform: rotateX(0deg) rotateY(0deg);
+  -moz-transform-style: preserve-3d;
+  -moz-backface-visibility: hidden;
+}
+
+.card-flip-right() {
+  -webkit-transform: rotateY(-180deg);
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  
+  -moz-transform: rotateY(-180deg);
+  -moz-transform-style: preserve-3d;
+  -moz-backface-visibility: hidden;
+}
