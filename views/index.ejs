@@ -14,15 +14,15 @@
 			<% for(var i=0; i<buzzwords.length; i++) {%>
 				<% if(i == 12) {%>
 					<div class="free-word">
-					  <div class="word-card">
+					  <div class="word-card box-free" data-value="1">
 					    <div class="front">
-					    	<a href="">yolo</a>
+					    	<a href="">yolo <%= i %></a>
 					    </div>
 					  </div>
 					</div>
 				<% } %>
 					<div class="word-container">
-					  <div class="word-card">
+					  <div class="word-card box-<%= i %>" data-value="0">
 					    <div class="front">
 					    	<a href=""><%= buzzwords[i] %></a>
 					    </div>
