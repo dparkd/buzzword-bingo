@@ -14,6 +14,10 @@ var content;
 $(document).ready(function() {
 
 	$('.word-card').on('click', function () {
+		if($(this).hasClass('box-free')) {
+			return;
+		}
+		
 	  $(this).toggleClass('flipped');
 
 	  if ($(this).hasClass('flipped')) {

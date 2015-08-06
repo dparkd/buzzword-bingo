@@ -1,6 +1,10 @@
 [
 	{
-		"type": "UX", 
-		"words": ["architecture", "information", "mind map", "word map", "user testing", "a/b testing", "User Interface", "Interaction", "Business", "stakeholders", "purpose", "1", "2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26"]
+		"type": "Tech Terms",
+		"words": ["Synergy", "Seed", "YC", "Angel Investor", "Venture Capital", "TechCrunch", "CrowdFunded", "Use Case", "Entrepreneur", "Overnight Success", "Viral", "Maker", "Pivot", "Ephemeral", "Bootstrapped", "Disrupt", "Gamification", "Cloud", "Wearables", "Apps", "Mobile App", "Web App", "Big Data", "Bitcoin", "Exit", "Acquired", "Integrated", "Hyperconvergence", "Data Privacy", "Security", "Software", "Hardware", "Saas", "B2B", "B2C"]
+	},
+	{
+		"type": "Startups", 
+		"words": ["ThumbTack", "Uber", "Lyft", "Tilt", "Handy", "Tindr", "SnapChat", "Facebook", "Palantir", "Vungle", "Air bnb", "Periscope", "HootSuite", "Jet.com", "Meerkat", "Shopify", "Coin", "Stripe", "Spring", "Ello", "Shyp", "Heroku", "Alfred", "Yo", "Slack", "IFTT", "Product Hunt", "Juicero", "Lumoid", "MatterMark", "Luxe Valet", "Gogoro", "fitbit", "GoPro", "Teespring", "Even", "RobinHood", "Checkr", "Intercom", "Unbounce", "Giphy", "Mixpanel", "Digital Ocean", "Docker", "Couchbase", "CREW", "Qualtrics", "Wish", "Braintree", "yelp", "Square", "Dropbox", "pebble", "Firebase", "Pusher", "Affirm", "Parse", "Namecheap", "linode", "Wolfram" ]
 	}
 ]
