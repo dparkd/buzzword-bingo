@@ -23,6 +23,8 @@ router.get('/', function(req, res, next) {
 	  if(!found)wordList[wordList.length]=randomWord;
 	}
 
+	//why hellow there
+
   res.render('index', { buzzwords: wordList, player: player });
 });
 
