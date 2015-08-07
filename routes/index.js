@@ -8,9 +8,11 @@ router.get('/', function(req, res, next) {
 	var wordData = buzzwords[1].words;
 	var wordList = [];
 
+	var player = Math.floor(Math.random() * 100);
+
 	// Get unique array of words
 	while(wordList.length < 24){
-	  var randomWord=wordData[Math.floor(Math.random() * wordData.length)]
+	  var randomWord = wordData[Math.floor(Math.random() * wordData.length)];
 	  var found=false;
 
 	  for (var i=0;i<wordList.length;i++) {
@@ -21,7 +23,7 @@ router.get('/', function(req, res, next) {
 	  if(!found)wordList[wordList.length]=randomWord;
 	}
 
-  res.render('index', { buzzwords: wordList });
+  res.render('index', { buzzwords: wordList, player: player });
 });
 
 module.exports = router;

@@ -5,6 +5,7 @@
 
 // Variables
 var content;
+var socket = io.connect();
 
 
 /* 
@@ -12,6 +13,10 @@ var content;
 */
 
 $(document).ready(function() {
+
+	socket.on('news', function(data) {
+		console.log(data.userWin + ' is the winner');
+	});
 
 	$('.word-card').on('click', function () {
 		if($(this).hasClass('box-free')) {
@@ -26,6 +31,7 @@ $(document).ready(function() {
 	  } else {
 	  	$(this).data('value', 0);
 	  }
+
 	});
 
 	// Prevent Default
@@ -67,7 +73,8 @@ function checkWin() {
 
 // Run this function whenever the player wins
 function youWin() {
-	console.log('you win nigguh');
+	var username = $('.player').text();
+	socket.emit('isWinner', {winner: 'You are the winner', player: username});
 }
 
 

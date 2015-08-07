@@ -7,8 +7,7 @@
   <body>
 		
 		<div class="title">
-			<h1>Buzzword Bingo</h1>
-			<p>Design Edition</p>
+			<h1 class="player"><%= player %></h1>
 		</div>
     <div class="bingo-card">
 			<% for(var i=0; i<buzzwords.length; i++) {%>
@@ -33,7 +32,8 @@
 					</div>
 			<% } %>
 		</div>
-
+		
+		<script src="/socket.io/socket.io.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="/javascripts/core.js"></script>
   </body>
