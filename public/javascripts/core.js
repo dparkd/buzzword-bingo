@@ -100,8 +100,7 @@ function checkWin() {
 // Run this function whenever the player wins
 function youWin() {
 	var username = $('.player').text();
-	alert('Congrats! You won');
-	resetBoard();
+	alert('Congrats, You are the winner!');
 	socket.emit('isWinner', {winner: 'You are the winner', player: currentUser, room: currentRoom});
 }
 
