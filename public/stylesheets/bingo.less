@@ -7,22 +7,40 @@
 	}
 }
 
+.title{
+	padding-bottom:20px;
+	span{
+		font-size:1.2em;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		color: white;
+		font-weight: 700;
+	}
+}
+
 // Specific Styles
 
 .bingo-card{
-	width: 850px;
-	height: 850px;
+	width: 750px;
+	height: 750px;
 	margin: 0 auto;
+	opacity:0;
 }
 
 .word-container, .free-word{
-  width: 166px;
-  height: 166px;
+  width: 146px;
+  height: 146px;
   display: inline-block;
   position: relative;
   -webkit-perspective: 800px;
   -ms-perspective: 800px;
   perspective: 800px;
+
+  a{
+  	font-size: 1em;
+  	padding: 5px;
+  	word-wrap: auto;
+  }
 }
 
 .word-card{
@@ -62,9 +80,10 @@
 	  -ms-flex-align: center;
 	  -webkit-align-items: center;
 	  align-items: center;
-	  font: 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
 	  -webkit-font-smoothing: antialiased;
 	  color: @word-open-text;
+
+	  word-wrap: auto;
   }
 
   .back {

@@ -5,7 +5,12 @@ var buzzwords = require('../buzzword.json');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	var wordData = buzzwords[1].words;
+	res.render('index');
+});
+
+// Grab user list
+router.get('/bingo', function(req, res, next) {
+	var wordData = buzzwords[0].words;
 	var wordList = [];
 
 	var player = Math.floor(Math.random() * 100);
@@ -23,9 +28,12 @@ router.get('/', function(req, res, next) {
 	  if(!found)wordList[wordList.length]=randomWord;
 	}
 
-	//why hellow there
-
-  res.render('index', { buzzwords: wordList, player: player });
+	// Get the user and the room db
+	var db = req.db;
+  var collection = db.get('bingocollection');
+  collection.find({},{},function(e,docs){
+      res.render('bingo', { buzzwords: wordList, player: player, userlist: docs });
+  });
 });
 
 module.exports = router;

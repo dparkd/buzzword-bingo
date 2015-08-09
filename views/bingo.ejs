@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/stylesheets/style.css">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+		<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+		<script type="text/javascript">stLight.options({publisher: "602bc745-c627-4723-8f81-9c303c57ca68", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+  </head>
+  <body>
+
+		<div class="modal fade" id="userModal">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h1 class="modal-title">Buzzword Bingo</h1>
+		      </div>
+		      <div class="modal-body">
+		      	<p>At a conference? In a meeting? In a Cafe in the Bay Area?</p>
+		      	<p>Play Buzzword Bingo! If you are playing alone, put any room value.</p><br>
+		      	<div class="game-form">
+		      		<div class="game-label">Username</div>
+							<input type="text" class="username game-input">
+		      	</div>
+		      	<div class="game-form" style="margin-top: -2px;">
+		      		<div class="game-label">
+		      			Gameroom 
+		      		</div>
+							<input type="text" class="bingoroom game-input">
+		      	</div>
+						<button type="submit" class="btn btn-primary" id="startGame">Let's Play</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+		<div class="title">
+			<span class="currentUser"></span>
+			<span class="currentRoom"></span>
+
+		</div>
+    <div class="bingo-card">
+			<% for(var i=0; i<buzzwords.length; i++) {%>
+				<% if(i == 12) {%>
+					<div class="free-word">
+					  <div class="word-card box-free" data-value="1">
+					    <div class="front">
+					    	<a href="">Free Word!</a>
+					    </div>
+					  </div>
+					</div>
+				<% } %>
+					<div class="word-container">
+					  <div class="word-card box-<%= i %>" data-value="0">
+					    <div class="front">
+					    	<a href=""><%= buzzwords[i] %></a>
+					    </div>
+					    <div class="back">
+					    	<a href=""><%= buzzwords[i] %></a>
+					    </div>
+					  </div>
+					</div>
+			<% } %>
+		</div>
+
+		<div class="row text-center share-buttons">
+			<span class="st_facebook_hcount" displayText="Facebook" style="height: 25px;"></span>
+			<span class="st_twitter_hcount" displayText="Tweet" style="height: 25px;"></span>
+			<br><br>
+			<p>Made By: <a href="https://twitter.com/itsdpark">@itsdpark</a></p>
+		</div>
+
+
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="/javascripts/core.js"></script>
+  </body>
+</html>

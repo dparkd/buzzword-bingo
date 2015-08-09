@@ -9,13 +9,19 @@ var debug = require('debug')('buzzword-bingo:server');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-io.on('connection', function (socket) {
+io.sockets.on('connection', function (socket) {
+
+  socket.on('join game', function(room) {
+    socket.join(room);
+  });
+
   socket.on('isWinner', function(data) {
-    socket.broadcast.emit('news', {
+    socket.broadcast.to(data.room).emit('game state', {
       didWin: data.winner,
       userWin: data.player
     });
   });
+
 });
 
 /**

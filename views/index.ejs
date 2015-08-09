@@ -1,40 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/stylesheets/style.css">
 		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   </head>
   <body>
 		
-		<div class="title">
-			<h1 class="player"><%= player %></h1>
-		</div>
-    <div class="bingo-card">
-			<% for(var i=0; i<buzzwords.length; i++) {%>
-				<% if(i == 12) {%>
-					<div class="free-word">
-					  <div class="word-card box-free" data-value="1">
-					    <div class="front">
-					    	<a href="">yolo <%= i %></a>
-					    </div>
-					  </div>
-					</div>
-				<% } %>
-					<div class="word-container">
-					  <div class="word-card box-<%= i %>" data-value="0">
-					    <div class="front">
-					    	<a href=""><%= buzzwords[i] %></a>
-					    </div>
-					    <div class="back">
-					    	<a href="">answered <%= buzzwords[i] %></a>
-					    </div>
-					  </div>
-					</div>
-			<% } %>
-		</div>
+		<div class="modal fade" id="userModal">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title">Buzzword Bingo</h4>
+		      </div>
+		      <div class="modal-body">
+						
+						<form action="/adduser" method="post">
+							<!-- <h3>Choose a room to play in</h3>
+							<p>Don't have a code? Just make your own!</p>
+							<input type="text" placeholder="Room Code" name="chooseroom"> -->
+							<h3>Choose a username</h3>
+							<p>Make it fun!</p>
+							<input type="text" placeholder="Username" name="choosename">
+		      </div>
+		      <div class="modal-footer">
+		        <button type="submit" class="btn btn-primary">Save changes</button>
+		       	</form>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
 		
 		<script src="/socket.io/socket.io.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="/javascripts/core.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script>
+			// Show the modal on load of the window
+			$(window).load(function(){
+			   $('#userModal').modal('show');
+			});
+		</script>
   </body>
 </html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<link rel="stylesheet" href="/stylesheets/style.css">
+		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+		
+		<div class="title">
+			<% for(var i=0; i < userlist.length; i++) { %>
+				<p>
+					<%= userlist[i].username %>
+				</p>
+			<% } %>
+		</div>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="/javascripts/core.js"></script>
+  </body>
+</html>

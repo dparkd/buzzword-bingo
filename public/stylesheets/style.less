@@ -1,6 +1,10 @@
 body {
   padding: 50px;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Open Sans', sans-serif;
+	text-rendering: geometricPrecision;
+
+	background: url('../images/bg.jpg')no-repeat center center;
+	background-size: cover;
 }
 
 a {
@@ -17,6 +21,24 @@ ul{
 }
 
 
+.share-buttons{
+	padding-top: 20px;
+	
+	p{
+		color: white;
+	}
+	a{
+		color: white;
+		text-decoration: underline;
+	}
+}
+.stButton .st-twitter-counter, .stButton .st-facebook-counter, .stButton .stButton_gradient
+{
+height: 22px !important;
+width: 60px;
+}
+
 @import "variables";
 @import "components";
 @import "bingo";
+@import "modal";

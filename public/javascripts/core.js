@@ -1,12 +1,23 @@
-// // Variables
-// var WC = [[0,1,2,3,4],[5,6,7,8,9],[10,11,'free',12,13],[14,15,16,17,18],[19,20,21,22,23],[0,5,10,14,19],[1,6,11,15,20],[2,7,'free',16,21],[3,8,12,17,22],[4,9,13,18,23],[0,6,'free',17,23],[4,8,'free',15,19]];
-// var content;
-
-
 // Variables
 var content;
+var currentUser;
+var currentRoom;
+var numUsers;
 var socket = io.connect();
 
+// Show the modal on load of the window
+$(window).load(function(){
+	$('#userModal').modal({
+    backdrop: 'static',
+    keyboard: false
+	});
+	$('#userModal').modal('show');
+
+	$('#startGame').click(function() {
+		$('#userModal').modal('hide');
+		$('.bingo-card').css('opacity', '1');
+	});
+});
 
 /* 
 /	Document ready interaction javascript
@@ -14,24 +25,29 @@ var socket = io.connect();
 
 $(document).ready(function() {
 
-	socket.on('news', function(data) {
-		console.log(data.userWin + ' is the winner');
+	// Choose Room and username
+	$('#startGame').click(function() {
+		currentUser = $('.username').val();
+		currentRoom = $('.bingoroom').val();
+
+		$('.currentUser').html(currentUser + ' -');
+		$('.currentRoom').html(currentRoom);
+
+		socket.emit('join game', currentRoom);
 	});
 
+	// Word click function
 	$('.word-card').on('click', function () {
 		if($(this).hasClass('box-free')) {
 			return;
 		}
-		
 	  $(this).toggleClass('flipped');
-
 	  if ($(this).hasClass('flipped')) {
 	  	$(this).data('value', 1);
 	  	checkWin();
 	  } else {
 	  	$(this).data('value', 0);
 	  }
-
 	});
 
 	// Prevent Default
@@ -43,6 +59,16 @@ $(document).ready(function() {
 	});
 
 });
+
+/* 
+/	Socket Events
+*/
+
+// Socket function
+socket.on('game state', function(data) {
+		alert(data.userWin + ' is the winner');
+});
+
 
 
 /* 
@@ -74,7 +100,9 @@ function checkWin() {
 // Run this function whenever the player wins
 function youWin() {
 	var username = $('.player').text();
-	socket.emit('isWinner', {winner: 'You are the winner', player: username});
+	alert('Congrats! You won');
+	resetBoard();
+	socket.emit('isWinner', {winner: 'You are the winner', player: currentUser, room: currentRoom});
 }
 
 
