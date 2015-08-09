@@ -33,11 +33,25 @@
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
 
+		<div class="modal fade" id="winModal">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h1 class="modal-title">Winner Winner!</h1>
+		      </div>
+		      <div class="modal-body">
+		      	<p><span class="winner-name"></span> got a row!</p>
+						<button type="submit" class="btn btn-primary" id="resetGame">Play Again!</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
 		<div class="title">
 			<span class="currentUser"></span>
 			<span class="currentRoom"></span>
-
 		</div>
+
     <div class="bingo-card">
 			<% for(var i=0; i<buzzwords.length; i++) {%>
 				<% if(i == 12) {%>

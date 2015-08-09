@@ -11,12 +11,12 @@ $(window).load(function(){
     backdrop: 'static',
     keyboard: false
 	});
-	$('#userModal').modal('show');
 
 	$('#startGame').click(function() {
 		$('#userModal').modal('hide');
 		$('.bingo-card').css('opacity', '1');
 	});
+
 });
 
 /* 
@@ -58,6 +58,11 @@ $(document).ready(function() {
 		e.preventDefault();
 	});
 
+	// Reset the game
+	$('#resetGame').click(function() {
+		resetGame();
+	});
+
 });
 
 /* 
@@ -66,7 +71,12 @@ $(document).ready(function() {
 
 // Socket function
 socket.on('game state', function(data) {
-		alert(data.userWin + ' is the winner');
+
+	$('#winModal .winner-name').html(data.userWin);
+	$('#winModal').modal({
+    backdrop: 'static',
+    keyboard: false
+	});
 });
 
 
@@ -100,11 +110,28 @@ function checkWin() {
 // Run this function whenever the player wins
 function youWin() {
 	var username = $('.player').text();
-	alert('Congrats, You are the winner!');
+	$('#winModal .winner-name').html('You');
+	$('#winModal').modal({
+    backdrop: 'static',
+    keyboard: false
+	});
 	socket.emit('isWinner', {winner: 'You are the winner', player: currentUser, room: currentRoom});
 }
 
 
+// Run this function whener a player presses reset game
+function resetGame() {
+	$('#winModal').modal('hide');
+	$('.bingo-card .word-card').each(function() {
+		if($(this).hasClass('box-free')){
+			return;
+		}
+		else {
+			$(this).data('value', '0');
+			$(this).removeClass('flipped');
+		}
+	});
+}
 
 
 
