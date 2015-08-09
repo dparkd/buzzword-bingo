@@ -3,13 +3,8 @@ var router = express.Router();
 
 var buzzwords = require('../buzzword.json');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-	res.render('index');
-});
-
 // Grab user list
-router.get('/bingo', function(req, res, next) {
+router.get('/', function(req, res, next) {
 	var wordData = buzzwords[0].words;
 	var wordList = [];
 
@@ -29,11 +24,7 @@ router.get('/bingo', function(req, res, next) {
 	}
 
 	// Get the user and the room db
-	var db = req.db;
-  var collection = db.get('bingocollection');
-  collection.find({},{},function(e,docs){
-      res.render('bingo', { buzzwords: wordList, player: player, userlist: docs });
-  });
+  res.render('bingo', { buzzwords: wordList, player: player });
 });
 
 module.exports = router;
